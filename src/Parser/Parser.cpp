@@ -31,7 +31,7 @@ int Parser::openConfig()
         _cfg.readFile(_path);
     }
     catch(const libconfig::FileIOException &fileIOExcept) {
-        std::cerr << "I/O error while reading file." << std::endl;
+        std::cerr << "I/O error while reading file. File not found" << std::endl;
         return EXIT_FAILURE;
     }
     catch(const libconfig::ParseException &parseExcept) {

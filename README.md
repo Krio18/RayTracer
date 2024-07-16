@@ -38,7 +38,7 @@ Vous pouvez créer votre propre fichier de configuration en suivant le format sp
 Pour créer un nouveau fichier de configuration, créez un fichier dans le dossier `configs/` avec l'extension `.cfg`.
 
 ```bash
-$> touch configs/newconf.cfg
+$> touch scenes/newConf.cfg
 ```
 Le format `cfg` étant très exigeant, nous allons devoir créer des sections, des clés et des valeurs.
 
@@ -57,7 +57,7 @@ Les sections sont sensibles aux fautes de frappes et aux conventions.
 Par exemple `camera` est différent de `Camera`, ou encore `camera` est différent de `camera:`
 Il est aussi très important que TOUTES les *clés* et *valeurs* doivent être séparées par un *=* et un *espace*. Par exemple `fieldOfView=100` n'est pas valide, il faut `fieldOfView = 100`
 Il faut également que toutes les *clés* et *valeurs* mentionnées dans cette page soit présentent dans votre fichier de configuration. Sinon, votre fichier de configuration ne sera pas valide. Et vous allez alors rencontré des problèmes de rendu lors de l'execution de votre programme.
-Enfin, les toutes les valeurs, exceptés celles de la résolution doivent être sous le format "1.0" soit en valeurs floatantes. Utiliser des valeures entières peut donner lieu à des erreurs de compilation. 
+Enfin, les toutes les valeurs, exceptés celles de la résolution doivent être sous le format "1.0" soit en valeurs floatantes. Utiliser des valeures entières peut donner lieu à des erreurs de compilation.
 ```
 
 ### 📢 - Sections obligatoires
@@ -105,5 +105,5 @@ lights :
 Pour lancer le raytracer avec une scène spécifique, utilisez la commande suivante :
 
 ```bash
-./raytracer configs/<NOM_DU_FICHIER_DE_SCENE> > output.ppm
+./raytracer scenes/<NOM_DU_FICHIER_DE_SCENE> > output.ppm
 ```

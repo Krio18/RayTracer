@@ -11,31 +11,40 @@ GREEN='\033[0;32m'
 RED='\033[0;31m'
 RESET='\033[0m'
 
-error_exit() {
+#Status
+error_exit()
+{
     echo -e "${RED}[ERREUR] $1${RESET}" 1>&2
     exit 1
 }
 
-success() {
+success()
+{
     echo -e "${GREEN}[SUCCÈS] $1${RESET}"
 }
 
+work()
+{
+    echo -e "${ORANGE}[WORK] $1${ORANGE}"
+}
+
+
+#Instruction
 build_project() {
-    cd "$INSTALL_DIR" || error_exit "Impossible d'accéder au répertoire $INSTALL_DIR."
     make || error_exit "La construction du projet a échoué."
     success "Projet construit avec succès."
 }
 
 update_repo() {
-    if [ -d "$INSTALL_DIR" ]; then
-        cd "$INSTALL_DIR" || error_exit "Impossible d'accéder au répertoire $INSTALL_DIR."
-        git pull || error_exit "Impossible de mettre à jour le dépôt."
-        success "Dépôt mis à jour avec succès."
-        build_project
+    if git pull | grep -q "Already up to date."; then
+        success "Le dépôt est déjà à jour."
     else
-        error_exit "Le répertoire $INSTALL_DIR n'existe pas. Veuillez cloner le dépôt d'abord."
+        work "Dépôt mis à jour avec succès."
+        build_project
     fi
+    exit
 }
+
 
 delete_project() {
     echo ""
@@ -59,13 +68,13 @@ delete_project() {
 }
 
 show_help() {
-    echo "Usage: $0 [OPTION]"
+    echo "Usage: ./raytracer configs/<NOM_DU_FICHIER_DE_SCENE>"
     echo
     echo "Options:"
-    echo "  --install   Installe le projet"
-    echo "  --update    Met à jour le projet"
-    echo "  --delete    Supprime le projet"
-    echo "  -h, --help  Affiche cette aide"
+    echo "  -u, --update        Met à jour le projet."
+    echo "  -d, --delete        Supprime le projet."
+    echo "  -h, --help          Affiche cette aide."
+    exit
 }
 
 if [[ $# -eq 0 ]]; then
@@ -73,24 +82,29 @@ if [[ $# -eq 0 ]]; then
     exit 1
 fi
 
+
+#Action
 while getopts "hud" option; do
     case $option in
-        d| --delete)
+        d)
             delete_project
             ;;
-        u| --update)
+        u)
             update_repo
             ;;
-        h|--help)
+        h)
             show_help
             ;;
         *)
-            build_project
+            echo "Option inconnue: $1"
+            show_help
+            exit 1
             ;;
     esac
 done
 
 echo ""
 cd "$(find / -name RayTracer 2>/dev/null -type d -print -quit)" || error_exit "Répertoire RayTracer non trouvé."
-./raytracer "$@"
-echo ""
+build_project
+./raytracer "$@" > output.ppm
+success "Construction de l'image terminer."
