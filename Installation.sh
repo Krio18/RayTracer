@@ -45,16 +45,60 @@ build_project() {
     success "Projet construit avec succès."
 }
 
-cleanup() {
-    rm -- "$0"
+update_repo() {
+    if [ -d "$INSTALL_DIR" ]; then
+        cd $INSTALL_DIR || error_exit "Impossible d'accéder au répertoire $INSTALL_DIR."
+        git pull || error_exit "Impossible de mettre à jour le dépôt."
+        success "Dépôt mis à jour avec succès."
+        build_project
+    else
+        error_exit "Le répertoire $INSTALL_DIR n'existe pas. Veuillez cloner le dépôt d'abord."
+    fi
 }
 
-main() {
-    install_prerequisites
-    clone_repo
-    build_project
-    success "Installation et configuration terminées avec succès."
-    cleanup
+delete_project() {
+    if [ -d "$INSTALL_DIR" ]; then
+        rm -rf $INSTALL_DIR || error_exit "Impossible de supprimer le répertoire $INSTALL_DIR."
+        success "Projet supprimé avec succès."
+    else
+        error_exit "Le répertoire $INSTALL_DIR n'existe pas."
+    fi
 }
 
-main
+show_help() {
+    echo "Usage: $0 [OPTION]"
+    echo
+    echo "Options:"
+    echo "  --install   Installe le projet"
+    echo "  --update    Met à jour le projet"
+    echo "  --delete    Supprime le projet"
+    echo "  -h, --help  Affiche cette aide"
+}
+
+if [[ $# -eq 0 ]]; then
+    show_help
+    exit 1
+fi
+
+case "$1" in
+    --install
+        install_prerequisites
+        clone_repo
+        build_project
+        success "Installation et configuration terminées avec succès."
+        ;;
+    --update
+        update_repo
+        ;;
+    --delete
+        delete_project
+        ;;
+    -h|--help
+        show_help
+        ;;
+    *
+        echo "Option inconnue: $1"
+        show_help
+        exit 1
+        ;;
+esac
