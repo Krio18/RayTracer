@@ -1,5 +1,11 @@
 # ☄️ - Raytracer
 
+## - Créateurs
+
+- Killian COTTRELLE
+- Clément BARRIER
+- Sonny FOURMONT
+
 ## 🧐 - Qu'est-ce qu'un raytracer
 
 Un raytracer est un programme informatique qui simule la façon dont la lumière se propage dans une scène tridimensionnelle, en suivant le trajet des rayons lumineux à partir de la caméra virtuelle, permettant ainsi de générer des images réalistes.
@@ -22,6 +28,8 @@ bash -c "$(curl -fsSL https://raw.githubusercontent.com/Krio18/RayTracer/main/In
 ```
 
 ## 🚀 - Lancement du raytracer
+
+#### **Attention** ce raytracer ne fonction qu'à l'interieur de son dossier !**
 
 Pour lancer le raytracer avec une scène spécifique, utilisez la commande suivante :
 
@@ -49,7 +57,7 @@ $> touch scenes/newConf.cfg
 ```
 Le format `cfg` étant très exigeant, nous allons devoir créer des sections, des clés et des valeurs.
 
-**attention** cette fonctionnaliter etait en core du developpment lors de la mise en pause du projet, certaines configuration comm ela modification de la lumiere
+**Attention** cette fonctionnaliter etait en core du developpment lors de la mise en pause du projet, certaines configuration comm ela modification de la lumiere
 via un fichier `cfg` ne sont pas encore disponible.
 
 ### 🏛️ - Normes .cfg
