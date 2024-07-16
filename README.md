@@ -29,6 +29,13 @@ Pour installer ce raytracer, vous devez executer cette commande :
 bash -c "$(curl -fsSL https://raw.githubusercontent.com/Krio18/RayTracer/main/Installation.sh)"
 ```
 
+Flags:
+```bash
+  -u        Met à jour le projet.
+  -d        Supprime le projet.
+  -h        Affiche cette aide.
+```
+
 ## 🚀 - Lancement du raytracer
 
 #### **Attention** ce raytracer ne fonction qu'à l'interieur de son dossier !**
