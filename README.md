@@ -2,11 +2,17 @@
 
 ![Raytracer](screenshots/two_spheres_1_plane.jpg)
 
-## - Créateurs
+## 🤝 - Créateurs
 
-- Killian COTTRELLE
-- Clément BARRIER
-- Sonny FOURMONT
+<table>
+    <tbody>
+        <tr>
+            <td align="center" valign="top" width="14.28%"><a href="https://github.com/Krio18"><img src="https://avatars.githubusercontent.com/u/114526966?v=4" width="100px;" alt="Killian COTTRELLE" style="border-radius: 50% !important;"/><br /><sub><b>Killian<br>COTTRELLE</b></sub></a><br /></td>
+            <td align="center" valign="top" width="14.28%"><a href="https://github.com/Maskalito"><img src="https://avatars.githubusercontent.com/u/114986497?v=4" width="100px;" alt="Clément BARRIER" style="border-radius: 50% !important;"/><br /><sub><b>Clément<br>BARRIER</b></sub></a><br /></td>
+            <td align="center" valign="top" width="14.28%"><a href="https://github.com/Sonny-Fourmont"><img src="https://avatars.githubusercontent.com/u/114910491?v=4" width="100px;" alt="Sonny FOURMONT" style="border-radius: 50%; !important"/><br /><sub><b>Sonny<br>FOURMONT</b></sub></a><br /></td>
+        </tr>
+    </tbody>
+</table>
 
 ## 🧐 - Qu'est-ce qu'un raytracer
 
