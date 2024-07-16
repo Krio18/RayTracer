@@ -1,5 +1,7 @@
 # ☄️ - Raytracer
 
+![Raytracer](screenshots/two_spheres_1_plane.jpg)
+
 ## - Créateurs
 
 - Killian COTTRELLE
