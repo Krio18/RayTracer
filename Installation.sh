@@ -45,16 +45,11 @@ build_project() {
     success "Projet construit avec succès."
 }
 
-cleanup() {
-    rm -- "$INSTALL_DIR"
-}
-
 main() {
     install_prerequisites
     clone_repo
     build_project
     success "Installation et configuration terminées avec succès."
-    cleanup
 }
 
 main
