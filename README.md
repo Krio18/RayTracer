@@ -15,16 +15,25 @@ Avant d'installer et d'utiliser ce raytracer, assurez-vous d'avoir les élément
 
 ## 🛠️ - Installation
 
-Pour installer ce raytracer, vous pouvez cloner ce répo Git en exécutant la commande suivante :
+Pour installer ce raytracer, vous devez executer cette commande :
 
 ```bash
-git clone git@github.com:Krio18/RayTracer.git
-cd RayTracer
-make
+bash -c "$(curl -fsSL https://raw.githubusercontent.com/Krio18/RayTracer/main/Installation.sh)"
 ```
+
+## 🚀 - Lancement du raytracer
+
+Pour lancer le raytracer avec une scène spécifique, utilisez la commande suivante :
+
+```bash
+./Raytracer scenes/<NOM_DU_FICHIER_DE_SCENE>
+```
+
+Un fichier nommer "output.ppm" sera alors generer, celui-ci contiendra votre image.
+
 ## ⚙️ - Choix de la configuration
 
-Le moteur de raytracing peut être configuré en utilisant différents fichiers de configuration disponibles dans le dossier "configs". Voici une description de chaque fichier de configuration disponible :
+Le moteur de raytracing peut être configuré en utilisant différents fichiers de configuration disponibles dans le dossier "scenes". Voici une description de chaque fichier de configuration disponible :
 
 | Configuration                      | Description                                                                                           |
 |------------------------------------|-------------------------------------------------------------------------------------------------------|
@@ -33,9 +42,7 @@ Le moteur de raytracing peut être configuré en utilisant différents fichiers 
 
 ## 🖍️ - Créer une configuration
 
-Vous pouvez créer votre propre fichier de configuration en suivant le format spécifié dans la documentation.
-
-Pour créer un nouveau fichier de configuration, créez un fichier dans le dossier `configs/` avec l'extension `.cfg`.
+Pour créer un nouveau fichier de configuration, créez un fichier dans le dossier `scenes/` avec l'extension `.cfg`.
 
 ```bash
 $> touch scenes/newConf.cfg
@@ -98,12 +105,4 @@ lights :
         { x = 0.0; y = 2.0; z = 2.0; }
     ) ;
 };
-```
-
-## 🚀 - Lancement du raytracer
-
-Pour lancer le raytracer avec une scène spécifique, utilisez la commande suivante :
-
-```bash
-./raytracer scenes/<NOM_DU_FICHIER_DE_SCENE> > output.ppm
 ```
