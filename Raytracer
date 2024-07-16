@@ -71,9 +71,9 @@ show_help() {
     echo "Usage: ./raytracer configs/<NOM_DU_FICHIER_DE_SCENE>"
     echo
     echo "Options:"
-    echo "  -u, --update        Met à jour le projet."
-    echo "  -d, --delete        Supprime le projet."
-    echo "  -h, --help          Affiche cette aide."
+    echo "  -u        Met à jour le projet."
+    echo "  -d        Supprime le projet."
+    echo "  -h        Affiche cette aide."
     exit
 }
 
